@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div id="story-box">
+        <h3 id="title">{{ story[1] }}</h3>
+        <p id="author">by {{ story[4] }}</p>
+        <hr>
+        <p id="content">{{ story[3] }}</p>
+    </div>
+{% endblock %}
