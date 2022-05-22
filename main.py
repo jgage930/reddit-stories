@@ -13,11 +13,12 @@ subreddit_names = [
 
 scraper = Scraper(subreddit_names)
 df = scraper.scrape()
-print(df)
+df = df.astype(str)
+
 
 # add to database
 db = DataBase()
 db.insert(df)
 
-# data = db.getStories()
-# print(data)
+data = db.getStories()
+print(data)

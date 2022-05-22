@@ -13,17 +13,17 @@ class DataBase:
         create_table = """
             CREATE TABLE IF NOT EXISTS stories (
                 id integer PRIMARY KEY,
-                title text,
-                sub_name text,
-                content text,
-                author text
+                title text NOT NULL,
+                sub_name text NOT NULL,
+                content text NOT NULL,
+                author text NOT NULL
             )
         """
         self.cur.execute(create_table)
 
     def insert(self, df: pd.DataFrame):
         # inserts the given data frame into the database
-        df.to_sql(name='stories', con=self.conn, if_exists='append', index=False)
+        df.to_sql(name='stories', con=self.conn, if_exists='append', index=False, dtype='str')
 
     def getStories(self):
         # return the stroies form the r/stories subreddit
